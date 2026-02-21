@@ -344,13 +344,16 @@
     };
 
     document.getElementById('logout-btn').onclick = () => auth.signOut();
-    document.getElementById('close-overlay').onclick = () => overlay.classList.add('hidden');
+    document.getElementById('close-overlay').onclick = () => {
+      overlay.classList.add('hidden');
+      isPaypalRendering = false;
+    };
 
     const photoInput = document.getElementById('photo-input');
 
     // Generate Button - Now starts the flow without immediate payment check
-    // Original simple button flow
     generateBtn.onclick = (e) => {
+      console.log("Generate button clicked. User:", currentUser ? currentUser.uid : "None", "isPaid:", isPaid);
       if (!currentUser) {
         e.preventDefault();
         overlay.classList.remove('hidden');
@@ -388,10 +391,28 @@
       };
     }
 
+    let isPaypalRendering = false;
     function renderPayPal() {
-      paypalContainer.innerHTML = '';
+      if (typeof paypal === 'undefined') {
+        alert("PayPal SDK가 아직 로드되지 않았습니다. 잠시 후 다시 시도하거나 인터넷 연결을 확인해주세요.");
+        return;
+      }
+      if (isPaypalRendering) return;
+      if (paypalContainer.childElementCount > 0) return;
+
+      console.log("Rendering PayPal buttons...");
+      isPaypalRendering = true;
+      paypalContainer.innerHTML = '<div class="flex justify-center p-4"><div class="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div></div>';
+
       paypal.Buttons({
+        style: {
+          layout: 'vertical',
+          color: 'blue',
+          shape: 'rect',
+          label: 'pay'
+        },
         createOrder: (data, actions) => {
+          console.log("Creating PayPal order...");
           return actions.order.create({
             purchase_units: [{
               amount: { value: '3.00' },
@@ -410,8 +431,19 @@
             overlay.classList.add('hidden');
             window.location.href = "result.html";
           });
+        },
+        onError: (err) => {
+          console.error("PayPal Error:", err);
+          isPaypalRendering = false;
+          paypalContainer.innerHTML = '<p class="text-red-500 text-sm">Payment buttons failed to load. Please refresh or try a different browser.</p>';
+        },
+        onCancel: () => {
+          console.log("Payment cancelled by user.");
+          isPaypalRendering = false;
         }
-      }).render('#paypal-button-container');
+      }).render('#paypal-button-container').then(() => {
+        isPaypalRendering = false;
+      });
     }
   </script>
   <style>
