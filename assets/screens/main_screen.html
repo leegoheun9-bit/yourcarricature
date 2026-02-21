@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff5724",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#23140f",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 border-b border-primary/10">
+<div class="flex items-center justify-between max-w-2xl mx-auto w-full">
+<div class="flex items-center gap-2">
+<div class="bg-primary rounded-lg p-1.5 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">face_6</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Caricature Maker</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-24">
+<div class="max-w-2xl mx-auto w-full p-4 space-y-8">
+<section class="mt-4">
+<div class="relative group cursor-pointer">
+<div class="flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 px-6 py-12 transition-all hover:border-primary/50 hover:bg-primary/10">
+<div class="bg-primary text-white p-4 rounded-full shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-4xl">add_a_photo</span>
+</div>
+<div class="text-center">
+<h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">Upload Photo</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Transform your selfie into unique art</p>
+</div>
+<button class="mt-2 bg-primary text-white font-bold py-3 px-8 rounded-full transition-transform active:scale-95 shadow-md">
+                            Select from Gallery
+                        </button>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold">Choose Your Style</h3>
+<span class="text-primary text-xs font-semibold uppercase tracking-wider">Swipe to Explore</span>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 no-scrollbar" style="-ms-overflow-style: none; scrollbar-width: none;">
+<div class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-24 h-24 rounded-xl overflow-hidden ring-4 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark relative">
+<img class="w-full h-full object-cover" data-alt="Cartoon style caricature portrait preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdkiI_mdR0kV7blrb1oK8pgB3Z87ISaKap-PAIfraDPq64l9Ptd5z6zIU6V8vQ7C-9ip_ZhNXvLWVjkEmW86dPXqbH44Kgy_mwquFosGGpjokDLQma8AwPbse-8RKooEihrMjaZBpjV3r5QSECFKwS5J0tlZdQZSTS52vismZFny_eK_3N7HHMNEnnG3P7GN3aPVA_2DQuXFPvUKv1CYU5YR9ufba2wIUDX1nIfH28dZtApJ9n2eMzuCIngIR5X7ZEZ_ASTiPLWVHJ"/>
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-3xl">check_circle</span>
+</div>
+</div>
+<p class="text-sm font-bold text-primary">Cartoon</p>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-24 h-24 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
+<img class="w-full h-full object-cover grayscale" data-alt="Pencil sketch style caricature portrait preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAgBFxxPWRFFDmJWa_zpnXpLwdUOdKkbqeSMPCIpsSz9WqQ1bwXbIWGRJ8Tal5NYUeHxn4ilZlF8WMcaqoHsgskYi9TPFe9y60WCsp1mzCKLpkC_DJDmd2uOesxM2T79vKRr-9VAjJhQopq6ihJ4Bthjg91w7x7vJ2yQODp69GnNyt6ro2lxl5pa2NqC_JG0IxFz4u1RW59jU0rxnb5r5GC4xvQIZz_vm0xDy_XKTqLHUJYdKXsZokzDG4w_6qAHbvHEul0JYJXuRo"/>
+</div>
+<p class="text-sm font-medium text-slate-600 dark:text-slate-400">Sketch</p>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-24 h-24 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
+<img class="w-full h-full object-cover" data-alt="3D render style caricature portrait preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYYcykPGPID7pHFUJzp6cQJnZk_wksCVn-sjxir4X-d-ROTbx1css5hVKliOsaDBN_raywkBdJKL7KpEzEGxSM4Sn-ig2N7vPr_n4_jkn8LQ-S_nf8MhbcrmpTdp6Sx5VPGhI7E5IUZ2-hUqUKpzO-PQa3tv2XLjAFtf0HTUVmRl7pSDxI7AqfzjRYJMKtl8Ql2ojmsLzODyXGOVnyIF2-hh0_R23ZuLJy6WUwjKj_x41vTlfne_gKzNPLXpNSUIGIY6yhOM-47wqh"/>
+</div>
+<p class="text-sm font-medium text-slate-600 dark:text-slate-400">3D Render</p>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-24 h-24 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
+<img class="w-full h-full object-cover" data-alt="Anime style caricature portrait preview" src=""/>
+</div>
+<p class="text-sm font-medium text-slate-600 dark:text-slate-400">Anime</p>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2 group">
+<div class="w-24 h-24 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
+<img class="w-full h-full object-cover" data-alt="Oil painting style caricature portrait preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6ko64UXPIQB-goh6U2AYxAvKrurFqtCUHEGCmXWqJ2_F19meengYIs-Sw5ds9NLxqhUG-0GqIeMqG6AK31zAdZ2SVAyUMdkWkMr55PM9LTDCgIMFNJgDbrNI1z144feqDH2L4gHJT2LRxrukMZjxyBnqsYOO89bURQsWko08stGDOBtvwW8MsQM8Hpvd9pRTUP8XIclo_0nVappcx_b6idiDZ8N9lbl2ToVZr8e37Ieix-oP8LK3X3IIaFyGxkEjNOrI9OXotNHM8"/>
+</div>
+<p class="text-sm font-medium text-slate-600 dark:text-slate-400">Oil Paint</p>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold">Recently Created</h3>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square rounded-lg bg-slate-200 dark:bg-slate-800 overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Recently generated caricature 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR0y-7nQ5yA4uBbc6FSGzSUDXfhKI-bq7bU5dk8rU6_s3-yHHD4owgvSmM-LBBS7OzUr4M13IqFK0EhU1xW9NBVnyeGDil3My9f16kZ-GNcPl-cr1Ur6x7dt3vyySFxobVGTsXyw2ON2I29zNHAYuj1O0XGfItLFv30hS4FZ0EKBo7QzzL03WF5CEQC0DChq7wmAlantSfHsIJ4XZhihHEMXzON6p4ex41XDDWYr0_-ob6cg8hfi3lJ9KId3lzGNV0EDqYmFQhjcQy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+<span class="text-white text-xs font-medium">Generated 2h ago</span>
+</div>
+</div>
+<div class="aspect-square rounded-lg bg-slate-200 dark:bg-slate-800 overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Recently generated caricature 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuldY-x82eYcAwWNVAu_Sz0LGuPUq7UOtUBUzbRWw5ji9_s9lDUCZQ0vzb6eF22BDwRfECmU5fPpYtqKS2LRklzGcdsQbduzTw4gQFeDE34OONFUdulpBX7wM4iRir2JBYq7qj5B4e24zJVAocD2pibwEr9T9BTSUpL4QVEOVvWK75ndx_Hl_aJLFVOnyPUF9akPPm7hvIWWnP4sfFgUvZ9DHuFB_lcYR53vxcuW_wcnyHipIaZ3HOUMurHhpw7e9jMd7pT6g3C_ch"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+<span class="text-white text-xs font-medium">Generated Yesterday</span>
+</div>
+</div>
+<div class="aspect-square rounded-lg bg-slate-200 dark:bg-slate-800 overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Recently generated caricature 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxu-6Ejf3Hl5g6BqrhhgtZr4P0fgbIGwoPUkLXsLYloC2vMhi_UWuCoArfSNScp73ih6xcNfvEohYjvE5QfoYOZUd8WB4m8_FmGhrAk1kdavxJhEOLG325fBQwK8mPbrH0M1oOLzMhMyRPaFwpoTKO7nFMrDic74ZgDW3KToJKnr8h0U8K3xglG9WhihAMnJhhcjyY5svh4pKu9x0RpHSZLRyOanHowi-tLnsT7xzaauntzO1517xy0dBZpMmxLbx2MuVvfKAUDkwM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+<span class="text-white text-xs font-medium">Generated 3d ago</span>
+</div>
+</div>
+<div class="aspect-square rounded-lg bg-slate-200 dark:bg-slate-800 overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Recently generated caricature 4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTuu1_zDcvBOYhTEIMqty_vbpT98_x4SoANV9YxzCnPS38LM8jtUoft0zejkt7-8B7BTuua-cGzV5em_84LTr5Hqu4uj0gfNrHszZV7ornUVhq9-CD5xTGAco_mJGrKw6HUkCUZDrfQEj3pKZ9nYkyLKP9qWimbccCsu-v7wC46DmCMdG4YdnP9OllyWC7nS9mCnr7MgMeTP2H34LnAGPycxoxNuNusMzGoyR9RThaLykNYfVHShc7bfS_yuDz9qheGcz_0vRnxrXo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+<span class="text-white text-xs font-medium">Generated 1w ago</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-6 pb-6 pt-3 flex justify-around items-center z-20">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">auto_awesome_motion</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">My Gallery</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Settings</span>
+</a>
+</nav>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-1 {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</body></html>

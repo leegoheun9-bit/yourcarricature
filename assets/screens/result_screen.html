@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Caricature Maker - Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff5724",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#23140f",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Spline Sans', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Header -->
+<header class="flex items-center justify-between p-4 sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Your Caricature</h1>
+<button class="text-primary font-bold text-sm px-4 py-2 hover:bg-primary/10 rounded-full transition-colors">
+                New
+            </button>
+</header>
+<!-- Main Preview Area -->
+<main class="flex-1 px-4 py-2 flex flex-col gap-6">
+<div class="relative group">
+<!-- Large Artwork Preview -->
+<div class="w-full aspect-[4/5] overflow-hidden rounded-xl bg-slate-200 dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 hover:scale-105" data-alt="Stylized caricature portrait of a woman with vibrant colors" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtVnlYAcP7IfVTHFyttSWjE0hMCHpGZU5_1rdjTQoN7GRlSLgHr1sxJG0D6mfR568dCE60FlwU2dcCNLg9wBvIOkoRKHcJzwHQx8XxSuUYnXBcmCWarNcykPsXYrDYTc4P5D46iix_nUrChVKHj4cjinEaKg4P9X8eQJBUD1_A2fpsM2F4n0_dakbpL37cwXaz1A5QxLbO3tfcwbwbkzrMrH3WmewmkWdtQIazotxEIkPBpKNa0Cib4q-lu1ULBJLkoKeng06KqKNy");'>
+</div>
+</div>
+<!-- Before vs After Toggle Button (Floating) -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex h-10 items-center justify-center rounded-full bg-white/90 dark:bg-slate-900/90 p-1 shadow-xl backdrop-blur-sm border border-white/20">
+<label class="flex cursor-pointer h-full items-center justify-center overflow-hidden rounded-full px-4 has-[:checked]:bg-primary has-[:checked]:text-white text-slate-600 dark:text-slate-400 text-xs font-bold transition-all uppercase tracking-wider">
+<span>Original</span>
+<input class="hidden" name="comparison" type="radio" value="original"/>
+</label>
+<label class="flex cursor-pointer h-full items-center justify-center overflow-hidden rounded-full px-4 has-[:checked]:bg-primary has-[:checked]:text-white text-slate-600 dark:text-slate-400 text-xs font-bold transition-all uppercase tracking-wider">
+<span>Caricature</span>
+<input checked="" class="hidden" name="comparison" type="radio" value="caricature"/>
+</label>
+</div>
+</div>
+<!-- Action Buttons Row -->
+<div class="flex flex-col gap-3">
+<div class="flex gap-3">
+<button class="flex-1 flex items-center justify-center gap-2 h-14 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/25 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">download</span>
+<span>Save to Gallery</span>
+</button>
+<button class="w-14 h-14 flex items-center justify-center bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<button class="w-full h-12 flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400 font-medium hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<span>Edit Details</span>
+</button>
+</div>
+<!-- Try Another Style Carousel -->
+<div class="flex flex-col gap-4 mt-2 mb-8">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-sm font-bold uppercase tracking-widest text-slate-400">Try Another Style</h3>
+<span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 -mx-4 px-4">
+<!-- Style Item 1 -->
+<div class="flex flex-col gap-2 shrink-0 w-24">
+<div class="relative w-24 h-24 rounded-lg overflow-hidden border-2 border-primary shadow-md">
+<div class="w-full h-full bg-cover bg-center" data-alt="Watercolor style preview thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB8BfUsYcAPRLXjA1Ack19KougrwOpvfY-jRsUKMNMDye-VKYV9kwU3C5cTVHot8Di4rzeIf8dXYedDhVnEUa0REpRnCfFxQBZt1CPRKEDV0aXjudYUEkxWA5ZLtb6wQ_UuoNZBuVoC0VMU-e5XTsKmoWW8LJo8IYEVPi1wbf8zW_m6W-evhyC3kI5Em4QJIyJDwp0qb3dXSvPWuuRbF3b8dRWWGDUE1WM-gc71GrKRwHSN3IPmhKXuVOgQ8uj0qaZQ8UL05bpi0yOw");'></div>
+<div class="absolute inset-0 bg-primary/10"></div>
+</div>
+<p class="text-[10px] text-center font-bold text-primary uppercase">Watercolor</p>
+</div>
+<!-- Style Item 2 -->
+<div class="flex flex-col gap-2 shrink-0 w-24">
+<div class="w-24 h-24 rounded-lg overflow-hidden border-2 border-transparent bg-slate-200 dark:bg-slate-800 transition-transform active:scale-95">
+<div class="w-full h-full bg-cover bg-center grayscale" data-alt="Pencil sketch style preview thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTOhzCMughejQQFJMO5oaPdw4yniOih1ctvUy3-f8gJvl2ncaQYYwmclygLZtuc13p_hCTNcBCAKYSVm0K20ON9_c0MlJ2oKkcutd9nbe2HRaWyFXWTGQHcQB7p7kpnZfAAkDCy5ZtGGk7i9DOtiwd8modDBO4UlRY1M0qXBufbb-Qjm8B4d_TDcKpBhfDzdJp8Ga3Jnn0QpWu5fQ9_iKApDk4Tpp_Pp34sLToOhNyzkWD9Q-pHTRvc-QaRjIPe3cQ6ofiU6NcdC__");'></div>
+</div>
+<p class="text-[10px] text-center font-bold text-slate-500 uppercase">Sketch</p>
+</div>
+<!-- Style Item 3 -->
+<div class="flex flex-col gap-2 shrink-0 w-24">
+<div class="w-24 h-24 rounded-lg overflow-hidden border-2 border-transparent bg-slate-200 dark:bg-slate-800 transition-transform active:scale-95">
+<div class="w-full h-full bg-cover bg-center" data-alt="3D cartoon style preview thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtJoAEDVvQxRs23FqRnZiaw_pbyCBGuhtHL2cPLEeBe1zJkwnOY4d0BsF4tecMDyqGqA-B2s_M1OvwjBysy_thQj0aH5cF9gct076Yr2gSa0oVURciigoP58MO2tKVswBKcPolt6RBLT-_ZdwPz7EZy9vvbOXM_a6Ut7J3Re7sSlMu13bn4zG-AP5w_zJI-XGTOfiNTP9DY4zfYkKC8pkosqxfEon4nn4_Y8UJluKKiixh2J2XTULz5nYLM-33d1WT3bLdI81z4st5");'></div>
+</div>
+<p class="text-[10px] text-center font-bold text-slate-500 uppercase">3D Toon</p>
+</div>
+<!-- Style Item 4 -->
+<div class="flex flex-col gap-2 shrink-0 w-24">
+<div class="w-24 h-24 rounded-lg overflow-hidden border-2 border-transparent bg-slate-200 dark:bg-slate-800 transition-transform active:scale-95">
+<div class="w-full h-full bg-cover bg-center" data-alt="Pop art style preview thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhqkRKGC-_537UazfmqSojo06gRCDYQg-blJnfeyYZJQNF05XeThSon7dPwPXbi5ZuR5SEbZvH6hflXzZ__qy7ngu2MZhSMH4E6lPFv9Vk-M_M8d1iMzFxUijV5KEwMzaCDqDNr-gXz5QIRXLomqwUcBCp5G4Em_ActksJYkw2sGWsHnegiZhsk-sWeAv5yEtfIxM32Q8jIleUJLJQysW5ity84qIWTgr1WYQMBwJrL6Y3zD3IwD-jSwLrWa9HF0WVIjCuhOKO5ORF");'></div>
+</div>
+<p class="text-[10px] text-center font-bold text-slate-500 uppercase">Pop Art</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="flex gap-2 border-t border-primary/10 bg-background-light/95 dark:bg-background-dark/95 px-4 pb-6 pt-2 sticky bottom-0">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[28px] fill-[1]">magic_button</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-wider">Create</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">auto_awesome_motion</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-wider">Gallery</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">account_circle</span>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-wider">Profile</p>
+</a>
+</nav>
+</div>
+</body></html>
