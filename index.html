@@ -77,15 +77,10 @@
     class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 border-b border-primary/10">
     <div class="flex items-center justify-between max-w-2xl mx-auto w-full">
       <div class="flex items-center gap-2">
-        <div class="relative w-10 h-10 flex items-center justify-center">
-          <div
-            class="absolute inset-0 bg-gradient-to-tr from-primary to-orange-400 rounded-xl rotate-6 shadow-lg shadow-primary/20">
-          </div>
-          <div class="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-xl -rotate-3 border border-white/30"></div>
-          <span class="material-symbols-outlined text-white text-2xl relative z-10">face_6</span>
+        <div class="bg-primary rounded-lg p-1.5 flex items-center justify-center text-white">
+          <span class="material-symbols-outlined text-2xl">face_6</span>
         </div>
-        <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Caricature <span
-            class="text-primary">AI</span></h1>
+        <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Caricature Maker</h1>
       </div>
       <div class="flex items-center gap-3">
         <div id="user-info" class="hidden items-center gap-2">
@@ -107,22 +102,17 @@
         <div class="relative group cursor-pointer">
           <div
             class="flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 px-6 py-12 transition-all hover:border-primary/50 hover:bg-primary/10">
-            <div class="relative">
-              <div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-150"></div>
-              <div
-                class="bg-gradient-to-br from-primary to-orange-600 text-white p-6 rounded-3xl shadow-2xl relative z-10">
-                <span class="material-symbols-outlined text-5xl">auto_fix_high</span>
-              </div>
+            <div class="bg-primary text-white p-4 rounded-full shadow-lg shadow-primary/30">
+              <span class="material-symbols-outlined text-4xl">add_a_photo</span>
             </div>
             <div class="text-center">
               <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">Upload Photo</h2>
               <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Transform your selfie into unique art</p>
             </div>
-            <input type="file" id="photo-input" class="hidden" accept="image/*" />
-            <button id="generate-btn"
+            <a href="result.html" id="generate-btn"
               class="mt-2 bg-primary text-white font-bold py-3 px-8 rounded-full transition-transform active:scale-95 shadow-md inline-block">
               Select from Gallery
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -287,44 +277,25 @@
     const photoInput = document.getElementById('photo-input');
 
     // Generate Button - Now starts the flow without immediate payment check
-    generateBtn.onclick = () => {
-      photoInput.click();
-    };
-
-    photoInput.onchange = async (e) => {
-      if (e.target.files && e.target.files[0]) {
-        // 1. Show "Processing" State
+    // Original simple button flow
+    generateBtn.onclick = (e) => {
+      if (!currentUser) {
+        e.preventDefault();
         overlay.classList.remove('hidden');
-        googleBtn.classList.add('hidden');
+        overlayTitle.innerText = "Login Required";
+        overlayDesc.innerText = "Please sign in to continue with your caricature.";
+        googleBtn.classList.remove('hidden');
         paypalContainer.classList.add('hidden');
-        document.getElementById('close-overlay').classList.add('hidden');
-
-        overlayTitle.innerText = "AI is Drawing...";
-        overlayDesc.innerText = "Converting your photo into a masterpiece. Please wait a few seconds.";
-        document.getElementById('overlay-icon').innerHTML = '<span class="material-symbols-outlined text-4xl animate-spin">sync</span>';
-
-        // 2. Simulate 3 seconds of processing
-        await new Promise(resolve => setTimeout(resolve, 3000));
-
-        // 3. Now check Login/Payment
-        if (!currentUser) {
-          overlayTitle.innerText = "Art is Ready!";
-          overlayDesc.innerText = "Login now to see your premium AI caricature.";
-          googleBtn.classList.remove('hidden');
-          document.getElementById('overlay-icon').innerHTML = '<span class="material-symbols-outlined text-4xl">face</span>';
-          document.getElementById('close-overlay').classList.remove('hidden');
-        } else if (!isPaid) {
-          overlayTitle.innerText = "Unlock Your Art";
-          overlayDesc.innerText = "Your premium caricature is ready! Pay $3.00 to unlock and download high-quality results.";
-          googleBtn.classList.add('hidden');
-          paypalContainer.classList.remove('hidden');
-          document.getElementById('overlay-icon').innerHTML = '<span class="material-symbols-outlined text-4xl text-yellow-500">workspace_premium</span>';
-          document.getElementById('close-overlay').classList.remove('hidden');
-          renderPayPal();
-        } else {
-          // Already paid and logged in
-          window.location.href = "result.html";
-        }
+        document.getElementById('overlay-icon').innerHTML = '<span class="material-symbols-outlined text-4xl">face</span>';
+      } else if (!isPaid) {
+        e.preventDefault();
+        overlay.classList.remove('hidden');
+        overlayTitle.innerText = "Upgrade to Pro";
+        overlayDesc.innerText = "Unlock high-quality AI generation for just $3.00.";
+        googleBtn.classList.add('hidden');
+        paypalContainer.classList.remove('hidden');
+        document.getElementById('overlay-icon').innerHTML = '<span class="material-symbols-outlined text-4xl text-yellow-500">workspace_premium</span>';
+        renderPayPal();
       }
     };
 
