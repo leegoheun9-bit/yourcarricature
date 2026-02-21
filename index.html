@@ -112,10 +112,11 @@
               <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">Upload Photo</h2>
               <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Transform your selfie into unique art</p>
             </div>
-            <a href="result.html" id="generate-btn"
+            <input type="file" id="photo-input" class="hidden" accept="image/*" />
+            <button id="generate-btn"
               class="mt-2 bg-primary text-white font-bold py-3 px-8 rounded-full transition-transform active:scale-95 shadow-md inline-block">
               Select from Gallery
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -277,23 +278,47 @@
     document.getElementById('logout-btn').onclick = () => auth.signOut();
     document.getElementById('close-overlay').onclick = () => overlay.classList.add('hidden');
 
-    // Generate Button Interception
-    generateBtn.onclick = (e) => {
-      if (!currentUser) {
-        e.preventDefault();
+    const photoInput = document.getElementById('photo-input');
+
+    // Generate Button - Now starts the flow without immediate payment check
+    generateBtn.onclick = () => {
+      photoInput.click();
+    };
+
+    photoInput.onchange = async (e) => {
+      if (e.target.files && e.target.files[0]) {
+        // 1. Show "Processing" State
         overlay.classList.remove('hidden');
-        overlayTitle.innerText = "Login Required";
-        overlayDesc.innerText = "Please sign in to continue with your caricature.";
-        googleBtn.classList.remove('hidden');
-        paypalContainer.classList.add('hidden');
-      } else if (!isPaid) {
-        e.preventDefault();
-        overlay.classList.remove('hidden');
-        overlayTitle.innerText = "Upgrade to Pro";
-        overlayDesc.innerText = "Unlock high-quality AI generation for just $3.00.";
         googleBtn.classList.add('hidden');
-        paypalContainer.classList.remove('hidden');
-        renderPayPal();
+        paypalContainer.classList.add('hidden');
+        document.getElementById('close-overlay').classList.add('hidden');
+
+        overlayTitle.innerText = "AI is Drawing...";
+        overlayDesc.innerText = "Converting your photo into a masterpiece. Please wait a few seconds.";
+        document.getElementById('overlay-icon').innerHTML = '<span class="material-symbols-outlined text-4xl animate-spin">sync</span>';
+
+        // 2. Simulate 3 seconds of processing
+        await new Promise(resolve => setTimeout(resolve, 3000));
+
+        // 3. Now check Login/Payment
+        if (!currentUser) {
+          overlayTitle.innerText = "Art is Ready!";
+          overlayDesc.innerText = "Login now to see your premium AI caricature.";
+          googleBtn.classList.remove('hidden');
+          document.getElementById('overlay-icon').innerHTML = '<span class="material-symbols-outlined text-4xl">face</span>';
+          document.getElementById('close-overlay').classList.remove('hidden');
+        } else if (!isPaid) {
+          overlayTitle.innerText = "Unlock Your Art";
+          overlayDesc.innerText = "Your premium caricature is ready! Pay $3.00 to unlock and download high-quality results.";
+          googleBtn.classList.add('hidden');
+          paypalContainer.classList.remove('hidden');
+          document.getElementById('overlay-icon').innerHTML = '<span class="material-symbols-outlined text-4xl text-yellow-500">workspace_premium</span>';
+          document.getElementById('close-overlay').classList.remove('hidden');
+          renderPayPal();
+        } else {
+          // Already paid and logged in
+          window.location.href = "result.html";
+        }
       }
     };
 
