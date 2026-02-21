@@ -237,31 +237,22 @@
     // Login Action
     googleBtn.onclick = () => {
       const provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('profile');
+      provider.addScope('email');
 
-      // Check for browsers that Google blocks (In-app browsers)
       const ua = navigator.userAgent || navigator.vendor || window.opera;
-      const isInApp = /KAKAOTALK|Instagram|FBAN|FBAV|Line/i.test(ua);
       const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
+      const isInApp = /KAKAOTALK|Instagram|FBAN|FBAV|Line/i.test(ua);
 
-      if (isInApp) {
-        alert("카카오톡이나 인스타그램 등 앱 내부 브라우저에서는 구글 로그인이 차단될 수 있습니다. 오른쪽 상단 메뉴를 눌러 '다른 브라우저로 열기' 또는 'Chrome으로 열기'를 선택해 주세요.");
-        // We'll still try redirect as a fallback
-        auth.signInWithRedirect(provider);
-        return;
-      }
-
-      if (isMobile) {
+      if (isMobile || isInApp) {
+        // Direct redirect is more reliable on mobile to meet Google security policies
         auth.signInWithRedirect(provider);
       } else {
+        // Desktop uses popup for better UX
         auth.signInWithPopup(provider).catch(error => {
-          console.error("Login Error:", error.code, error.message);
-          if (error.code === 'auth/cancelled-popup-request') {
-            auth.signInWithRedirect(provider);
-          } else if (error.code === 'auth/unauthorized-domain') {
-            alert("승인되지 않은 도메인입니다. Firebase 콘솔 설정이 필요합니다.");
-          } else {
-            alert("로그인 에러: " + error.message);
-          }
+          console.error("Popup Login Error:", error.code, error.message);
+          // Fallback to redirect if popup fails/blocked
+          auth.signInWithRedirect(provider);
         });
       }
     };
