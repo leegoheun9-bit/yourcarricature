@@ -94,14 +94,30 @@
 
             <div class="flex flex-col gap-3">
                 <div class="flex gap-3">
-                    <button
+                    <button id="download-btn"
                         class="flex-1 flex items-center justify-center gap-2 h-14 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/25 hover:opacity-90 transition-opacity">
                         <span class="material-symbols-outlined">download</span>
                         <span>Save to Gallery</span>
                     </button>
-                    <button
+                    <button id="share-btn"
                         class="w-14 h-14 flex items-center justify-center bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors">
                         <span class="material-symbols-outlined">share</span>
+                    </button>
+                </div>
+
+                <!-- Referral / Viral Banner -->
+                <div
+                    class="mt-4 p-4 rounded-xl bg-gradient-to-r from-primary/10 to-orange-400/10 border border-primary/20 flex items-center gap-4">
+                    <div class="bg-primary/20 p-2 rounded-lg">
+                        <span class="material-symbols-outlined text-primary">redeem</span>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Share with Friends!</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-tight">Love your caricature?
+                            Share it on Instagram and tag us for a chance to win a free pack!</p>
+                    </div>
+                    <button class="bg-primary text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-sm">
+                        Tag Us
                     </button>
                 </div>
             </div>
@@ -156,6 +172,31 @@
                 }
             }
         });
+
+        // Share & Download Logic
+        const shareBtn = document.getElementById('share-btn');
+        const downloadBtn = document.getElementById('download-btn');
+
+        shareBtn.onclick = async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'My Custom Caricature!',
+                        text: 'Look at this cool caricature I made with Caricature AI!',
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.error('Sharing failed:', err);
+                }
+            } else {
+                alert('Share feature is not supported in this browser. You can copy the URL manually!');
+            }
+        };
+
+        downloadBtn.onclick = () => {
+            // In a real app, this would download the generated image file
+            alert('Your high-resolution caricature is being prepared for download!');
+        };
     </script>
 </body>
 

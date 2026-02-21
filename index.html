@@ -171,6 +171,23 @@
         </div>
       </section>
 
+      <!-- Referral Banner -->
+      <section class="bg-primary/5 border border-primary/20 rounded-2xl p-4 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="bg-primary/20 p-2 rounded-xl">
+            <span class="material-symbols-outlined text-primary">groups</span>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Invite & Get Gift</h4>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">Invite 3 friends and get a free high-pro
+              caricature!</p>
+          </div>
+        </div>
+        <button class="bg-primary text-white text-xs font-bold px-4 py-2 rounded-lg shadow-sm whitespace-nowrap">
+          Invite
+        </button>
+      </section>
+
       <section>
         <div class="flex items-center justify-between mb-2">
           <h3 class="text-base font-bold text-slate-900 dark:text-slate-100">Recently Created</h3>
@@ -352,6 +369,23 @@
         renderPayPal();
       }
     };
+
+    // Referral Logic
+    const inviteBtn = document.querySelector('section.bg-primary/5 button');
+    if (inviteBtn) {
+      inviteBtn.onclick = () => {
+        if (navigator.share) {
+          navigator.share({
+            title: 'Caricature AI',
+            text: 'Check out this cool AI caricature maker! Get yours for just $3.',
+            url: window.location.origin
+          });
+        } else {
+          navigator.clipboard.writeText(window.location.origin);
+          alert('Link copied to clipboard! Share it with your friends.');
+        }
+      };
+    }
 
     function renderPayPal() {
       paypalContainer.innerHTML = '';
