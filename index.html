@@ -74,13 +74,13 @@
   </div>
 
   <header
-    class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-2 border-b border-primary/10">
+    class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-1 border-b border-primary/10">
     <div class="flex items-center justify-between max-w-2xl mx-auto w-full">
-      <div class="flex items-center gap-2">
-        <div class="bg-primary rounded-lg p-1.5 flex items-center justify-center text-white">
-          <span class="material-symbols-outlined text-2xl">face_6</span>
+      <div class="flex items-center gap-1.5">
+        <div class="bg-primary rounded-md p-1 flex items-center justify-center text-white">
+          <span class="material-symbols-outlined text-xl">face_6</span>
         </div>
-        <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Caricature Maker</h1>
+        <h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">Caricature Maker</h1>
       </div>
       <div class="flex items-center gap-3">
         <div id="user-info" class="hidden items-center gap-2">
@@ -97,35 +97,35 @@
   </header>
 
   <main class="flex-1 overflow-y-auto pb-24">
-    <div class="max-w-2xl mx-auto w-full p-4 space-y-4">
+    <div class="max-w-2xl mx-auto w-full p-3 space-y-2">
       <section class="">
         <div class="relative group cursor-pointer">
           <div
-            class="flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 px-4 py-6 transition-all hover:border-primary/50 hover:bg-primary/10">
-            <div class="bg-primary text-white p-3 rounded-full shadow-lg shadow-primary/30">
-              <span class="material-symbols-outlined text-3xl">add_a_photo</span>
-            </div>
-            <div class="text-center">
+            class="flex items-center justify-between gap-3 rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 px-4 py-3 transition-all hover:border-primary/50 hover:bg-primary/10">
+            <div class="flex items-center gap-3">
+              <div class="bg-primary text-white p-2 rounded-full shadow-lg shadow-primary/30">
+                <span class="material-symbols-outlined text-2xl">add_a_photo</span>
+              </div>
               <h2 class="text-lg font-bold text-slate-900 dark:text-slate-100">Upload Photo</h2>
             </div>
             <a href="result.html" id="generate-btn"
-              class="mt-2 bg-primary text-white font-bold py-3 px-8 rounded-full transition-transform active:scale-95 shadow-md inline-block">
-              Select from Gallery
+              class="bg-primary text-white font-bold py-2 px-5 rounded-full transition-transform active:scale-95 shadow-md text-sm">
+              Gallery
             </a>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="text-lg font-bold">Choose Your Style</h3>
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-base font-bold">Choose Your Style</h3>
           <span class="text-primary text-xs font-semibold uppercase tracking-wider">Swipe to Explore</span>
         </div>
         <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 no-scrollbar"
           style="-ms-overflow-style: none; scrollbar-width: none;">
-          <div class="flex-shrink-0 flex flex-col items-center gap-2 group">
+          <div class="flex-shrink-0 flex flex-col items-center gap-1 group">
             <div
-              class="w-24 h-24 rounded-xl overflow-hidden ring-4 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark relative">
+              class="w-20 h-20 rounded-xl overflow-hidden ring-4 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark relative">
               <img class="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdkiI_mdR0kV7blrb1oK8pgB3Z87ISaKap-PAIfraDPq64l9Ptd5z6zIU6V8vQ7C-9ip_ZhNXvLWVjkEmW86dPXqbH44Kgy_mwquFosGGpjokDLQma8AwPbse-8RKooEihrMjaZBpjV3r5QSECFKwS5J0tlZdQZSTS52vismZFny_eK_3N7HHMNEnnG3P7GN3aPVA_2DQuXFPvUKv1CYU5YR9ufba2wIUDX1nIfH28dZtApJ9n2eMzuCIngIR5X7ZEZ_ASTiPLWVHJ" />
               <div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
@@ -134,8 +134,8 @@
             </div>
             <p class="text-sm font-bold text-primary">Cartoon</p>
           </div>
-          <div class="flex-shrink-0 flex flex-col items-center gap-2 group">
-            <div class="w-24 h-24 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
+          <div class="flex-shrink-0 flex flex-col items-center gap-1 group">
+            <div class="w-20 h-20 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
               <img class="w-full h-full object-cover grayscale"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAgBFxxPWRFFDmJWa_zpnXpLwdUOdKkbqeSMPCIpsSz9WqQ1bwXbIWGRJ8Tal5NYUeHxn4ilZlF8WMcaqoHsgskYi9TPFe9y60WCsp1mzCKLpkC_DJDmd2uOesxM2T79vKRr-9VAjJhQopq6ihJ4Bthjg91w7x7vJ2yQODp69GnNyt6ro2lxl5pa2NqC_JG0IxFz4u1RW59jU0rxnb5r5GC4xvQIZz_vm0xDy_XKTqLHUJYdKXsZokzDG4w_6qAHbvHEul0JYJXuRo" />
             </div>
@@ -148,15 +148,15 @@
             </div>
             <p class="text-sm font-medium text-slate-600 dark:text-slate-400">3D Render</p>
           </div>
-          <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
-            <div class="w-24 h-24 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
+          <div class="flex-shrink-0 flex flex-col items-center gap-1 group cursor-pointer">
+            <div class="w-20 h-20 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
               <img class="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR0y-7nQ5yA4uBbc6FSGzSUDXfhKI-bq7bU5dk8rU6_s3-yHHD4owgvSmM-LBBS7OzUr4M13IqFK0EhU1xW9NBVnyeGDil3My9f16kZ-GNcPl-cr1Ur6x7dt3vyySFxobVGTsXyw2ON2I29zNHAYuj1O0XGfItLFv30hS4FZ0EKBo7QzzL03WF5CEQC0DChq7wmAlantSfHsIJ4XZhihHEMXzON6p4ex41XDDWYr0_-ob6cg8hfi3lJ9KId3lzGNV0EDqYmFQhjcQy" />
             </div>
             <p class="text-sm font-medium text-slate-600 dark:text-slate-400">Anime</p>
           </div>
-          <div class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer">
-            <div class="w-24 h-24 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
+          <div class="flex-shrink-0 flex flex-col items-center gap-1 group cursor-pointer">
+            <div class="w-20 h-20 rounded-xl overflow-hidden ring-0 ring-primary transition-all hover:ring-2 relative">
               <img class="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6ko64UXPIQB-goh6U2AYxAvKrurFqtCUHEGCmXWqJ2_F19meengYIs-Sw5ds9NLxqhUG-0GqIeMqG6AK31zAdZ2SVAyUMdkWkMr55PM9LTDCgIMFNJgDbrNI1z144feqDH2L4gHJT2LRxrukMZjxyBnqsYOO89bURQsWko08stGDOBtvwW8MsQM8Hpvd9pRTUP8XIclo_0nVappcx_b6idiDZ8N9lbl2ToVZr8e37Ieix-oP8LK3X3IIaFyGxkEjNOrI9OXotNHM8" />
             </div>
