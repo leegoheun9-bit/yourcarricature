@@ -223,38 +223,42 @@
 
     // Handle Redirect Result (Important for Mobile)
     auth.getRedirectResult().then((result) => {
-      if (result.user) {
+      if (result && result.user) {
         console.log("Redirect login successful");
       }
     }).catch((error) => {
       console.error("Redirect Error:", error.code, error.message);
+      // Show error to user to diagnose mobile issues
+      if (error.code !== 'auth/web-storage-unsupported') {
+        alert("로그인 과정에서 문제가 발생했습니다: " + error.message + " (" + error.code + ")");
+      }
     });
 
     // Login Action
     googleBtn.onclick = () => {
-      console.log("Login attempt started...");
       const provider = new firebase.auth.GoogleAuthProvider();
 
-      // Check if mobile or in-app browser
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      const isKakao = /KAKAOTALK/i.test(navigator.userAgent);
+      // Check for browsers that Google blocks (In-app browsers)
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      const isInApp = /KAKAOTALK|Instagram|FBAN|FBAV|Line/i.test(ua);
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(ua);
 
-      if (isMobile || isKakao) {
-        // Use Redirect for mobile/in-app browsers
+      if (isInApp) {
+        alert("카카오톡이나 인스타그램 등 앱 내부 브라우저에서는 구글 로그인이 차단될 수 있습니다. 오른쪽 상단 메뉴를 눌러 '다른 브라우저로 열기' 또는 'Chrome으로 열기'를 선택해 주세요.");
+        // We'll still try redirect as a fallback
+        auth.signInWithRedirect(provider);
+        return;
+      }
+
+      if (isMobile) {
         auth.signInWithRedirect(provider);
       } else {
-        // Use Popup for desktop
         auth.signInWithPopup(provider).catch(error => {
           console.error("Login Error:", error.code, error.message);
-          if (error.code === 'auth/auth-domain-config-required') {
-            alert("Firebase 콘솔의 '승인된 도메인' 설정에 leegoheun9-bit.github.io 를 추가해야 합니다.");
-          } else if (error.code === 'auth/configuration-not-found') {
-            alert("Firebase 콘솔에서 '시작하기' 버튼을 누르고 Google 로그인을 활성화해야 합니다.");
-          } else if (error.code === 'auth/unauthorized-domain') {
-            alert("승인되지 않은 도메인입니다. Firebase 콘솔에서 leegoheun9-bit.github.io를 승인된 도메인에 추가해 주세요.");
-          } else if (error.code === 'auth/cancelled-popup-request') {
-            // In case of conflict on desktop, fallback to redirect
+          if (error.code === 'auth/cancelled-popup-request') {
             auth.signInWithRedirect(provider);
+          } else if (error.code === 'auth/unauthorized-domain') {
+            alert("승인되지 않은 도메인입니다. Firebase 콘솔 설정이 필요합니다.");
           } else {
             alert("로그인 에러: " + error.message);
           }
