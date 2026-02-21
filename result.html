@@ -7,13 +7,20 @@
     <meta name="theme-color" content="#6366f1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Caricature AI">
+    <meta name="apple-mobile-web-app-title" content="YourCaricature">
     <!-- Temporary Sketch Icon Placeholder -->
     <link rel="apple-touch-icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ff5724'/%3E%3Cpath d='M30 70 q 20 -40 40 0 M40 40 a 5 5 0 1 1 5 5 M55 40 a 5 5 0 1 1 5 5 M45 55 q 5 10 10 0' stroke='white' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M70 20 L80 30 L60 50' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%230f172a'/%3E%3Ccircle cx='50' cy='50' r='35' stroke='%236366f1' stroke-width='2' fill='none' opacity='0.3'/%3E%3Cpath d='M40 60 Q 45 40 55 35 Q 60 35 60 45 A 5 5 0 0 1 55 50 S 50 50 48 55 S 45 65 45 75' stroke='%23eab308' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M58 48 L62 58 L54 55 Z' fill='%23eab308'/%3E%3C/svg%3E">
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ff5724'/%3E%3Cpath d='M30 70 q 20 -40 40 0 M40 40 a 5 5 0 1 1 5 5 M55 40 a 5 5 0 1 1 5 5 M45 55 q 5 10 10 0' stroke='white' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M70 20 L80 30 L60 50' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
-    <title>Caricature Maker - Results</title>
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%230f172a'/%3E%3Ccircle cx='50' cy='50' r='35' stroke='%236366f1' stroke-width='2' fill='none' opacity='0.3'/%3E%3Cpath d='M40 60 Q 45 40 55 35 Q 60 35 60 45 A 5 5 0 0 1 55 50 S 50 50 48 55 S 45 65 45 75' stroke='%23eab308' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M58 48 L62 58 L54 55 Z' fill='%23eab308'/%3E%3C/svg%3E">
+    <title>당신의 캐리커처 - 결과 확인</title>
+    <!-- SNS 공유를 위한 Open Graph 태그 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="당신의 캐리커처 - 예술적 펜 라인">
+    <meta property="og:description" content="나만의 세련된 AI 캐릭터가 완성되었습니다! 지금 바로 확인해보세요.">
+    <meta property="og:image"
+        content="https://lh3.googleusercontent.com/aida-public/AB6AXuDkiI_mdR0kV7blrb1oK8pgB3Z87ISaKap-PAIfraDPq64l9Ptd5z6zIU6V8vQ7C-9ip_ZhNXvLWVjkEmW86dPXqbH44Kgy_mwquFosGGpjokDLQma8AwPbse-8RKooEihrMjaZBpjV3r5QSECFKwS5J0tlZdQZSTS52vismZFny_eK_3N7HHMNEnnG3P7GN3aPVA_2DQuXFPvUKv1CYU5YR9ufba2wIUDX1nIfH28dZtApJ9n2eMzuCIngIR5X7ZEZ_ASTiPLWVHJ">
+    <meta property="og:url" content="https://your-carricature-ai.web.app">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet" />
@@ -64,22 +71,33 @@
     <div
         class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl">
         <header
-            class="flex items-center justify-between p-4 sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+            class="flex items-center justify-between p-4 sticky top-0 z-50 bg-[#0f172a] border-b border-white/5 shadow-xl">
             <a href="index.html"
-                class="flex size-10 items-center justify-center rounded-full hover:bg-primary/10 transition-colors">
+                class="flex size-10 items-center justify-center rounded-full hover:bg-white/10 text-white transition-colors">
                 <span class="material-symbols-outlined">arrow_back</span>
             </a>
             <div class="flex items-center gap-3">
                 <div class="relative w-8 h-8 flex items-center justify-center">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-violet-500 rounded-lg rotate-6 shadow-md shadow-indigo-500/20">
-                    </div>
-                    <span class="material-symbols-outlined text-white text-lg relative z-10">face_6</span>
+                    <svg class="w-7 h-7 text-yellow-500" viewBox="0 0 100 100" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="3" opacity="0.8" />
+                        <path d="M40 75 Q 45 45 55 40 Q 60 38 62 48 A 6 6 0 0 1 56 54 S 51 54 49 60 S 46 72 46 82"
+                            stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                        <path d="M58 52 L64 64 L54 60 Z" fill="currentColor" />
+                    </svg>
+                    <div class="absolute inset-0 bg-yellow-500/10 rounded-full blur-sm"></div>
                 </div>
-                <h1 class="text-lg font-bold tracking-tight">Caricature AI</h1>
+                <div class="flex flex-col">
+                    <h1 class="text-[12px] font-black tracking-tight leading-tight" id="header-brand">
+                        <span class="text-white">당신의</span> <span class="text-[#6366f1]">캐리커처</span>
+                    </h1>
+                    <p class="text-[8px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none opacity-80"
+                        data-t="slogan">
+                        예술적 펜 라인</p>
+                </div>
             </div>
             <a href="index.html"
-                class="text-primary font-bold text-sm px-4 py-2 hover:bg-primary/10 rounded-full transition-colors">New</a>
+                class="text-white text-[10px] font-bold px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded-full transition-all border border-white/10 tracking-wider">New</a>
         </header>
 
         <main class="flex-1 px-4 py-2 flex flex-col gap-6">
@@ -97,7 +115,7 @@
                     <button id="download-btn"
                         class="flex-1 flex items-center justify-center gap-2 h-14 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/25 hover:opacity-90 transition-opacity">
                         <span class="material-symbols-outlined">download</span>
-                        <span>Save to Gallery</span>
+                        <span data-t="save_gallery">Save to Gallery</span>
                     </button>
                     <button id="share-btn"
                         class="w-14 h-14 flex items-center justify-center bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors">
@@ -111,11 +129,13 @@
                         <span class="material-symbols-outlined text-indigo-600">redeem</span>
                     </div>
                     <div class="flex-1">
-                        <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Share with Friends!</h4>
-                        <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-tight">Love your caricature?
-                            Share it on Instagram and tag us for a chance to win a free pack!</p>
+                        <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100" data-t="share_friends">Share
+                            with Friends!</h4>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-tight" data-t="share_promo">
+                            Love your caricature? Share it on Instagram and tag us for a chance to win a free pack!</p>
                     </div>
-                    <button class="bg-primary text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-sm">
+                    <button class="bg-primary text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-sm"
+                        data-t="tag_us">
                         Tag Us
                     </button>
                 </div>
@@ -123,21 +143,29 @@
         </main>
 
         <nav
-            class="flex gap-2 border-t border-primary/10 bg-background-light/95 dark:bg-background-dark/95 px-4 pb-6 pt-2 sticky bottom-0">
-            <a class="flex flex-1 flex-col items-center justify-end gap-1 text-indigo-600" href="index.html">
-                <div class="flex h-8 items-center justify-center"><span
-                        class="material-symbols-outlined text-[28px] fill-[1]">magic_button</span></div>
-                <p class="text-[10px] font-bold uppercase tracking-wider">Create</p>
+            class="fixed bottom-0 left-0 right-0 bg-[#0f172a] border-t border-white/5 px-6 pb-6 pt-3 flex justify-around items-center z-20">
+            <a class="flex flex-1 flex-col items-center justify-end gap-1 text-[#6366f1]" href="index.html">
+                <div class="flex h-8 items-center justify-center">
+                    <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="3" opacity="0.8" />
+                        <path d="M40 75 Q 45 45 55 40 Q 60 38 62 48 A 6 6 0 0 1 56 54 S 51 54 49 60 S 46 72 46 82"
+                            stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                        <path d="M58 52 L64 64 L54 60 Z" fill="currentColor" />
+                    </svg>
+                </div>
+                <p class="text-[10px] font-bold uppercase tracking-wider" data-t="create">Create</p>
             </a>
-            <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+            <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 hover:text-white transition-colors"
+                href="#">
                 <div class="flex h-8 items-center justify-center"><span
                         class="material-symbols-outlined text-[28px]">auto_awesome_motion</span></div>
-                <p class="text-[10px] font-bold uppercase tracking-wider">Gallery</p>
+                <p class="text-[10px] font-bold uppercase tracking-wider" data-t="gallery">Gallery</p>
             </a>
-            <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+            <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 hover:text-white transition-colors"
+                href="#">
                 <div class="flex h-8 items-center justify-center"><span
-                        class="material-symbols-outlined text-[28px]">account_circle</span></div>
-                <p class="text-[10px] font-bold uppercase tracking-wider">Profile</p>
+                        class="material-symbols-outlined text-[28px]">settings</span></div>
+                <p class="text-[10px] font-bold uppercase tracking-wider" data-t="nav_settings">Settings</p>
             </a>
         </nav>
     </div>
@@ -149,26 +177,44 @@
 
     <script>
         const firebaseConfig = {
-            apiKey: "AIzaSyAGX46KzjVDJThGn9j4rMdWQBwZNRHmdF0",
-            authDomain: "linkbioprofit.firebaseapp.com",
-            projectId: "linkbioprofit",
-            storageBucket: "linkbioprofit.firebasestorage.app",
-            messagingSenderId: "980288554275",
-            appId: "1:980288554275:web:465061c36cf60418187896"
+            apiKey: "AIzaSyCOb0TV-xPJgglQqByOIQqp0X6rWgxZpUQ",
+            authDomain: "your-carricature-ai.firebaseapp.com",
+            projectId: "your-carricature-ai",
+            storageBucket: "your-carricature-ai.firebasestorage.app",
+            messagingSenderId: "822360440252",
+            appId: "1:822360440252:web:6ea9e96ab443dc2f463fb9",
+            measurementId: "G-QHBKQ3JV2S"
         };
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.firestore();
 
-        auth.onAuthStateChanged(async (user) => {
+        auth.onAuthStateChanged((user) => {
             if (!user) {
-                window.location.href = "index.html";
+                // 로그인 확인 대기 시간 대폭 연장 (모바일 네트워크 지연 대응)
+                setTimeout(() => {
+                    if (!auth.currentUser) {
+                        console.log("No user session found, returning to main.");
+                        window.location.href = "index.html";
+                    }
+                }, 5000);
             } else {
-                const doc = await db.collection('users').doc(user.uid).get();
-                if (!doc.exists || !doc.data().paid) {
-                    alert("Please complete the payment to view your caricature.");
-                    window.location.href = "index.html";
-                }
+                // Check if paid in Firestore
+                db.collection('users').doc(user.uid).onSnapshot((doc) => {
+                    if (doc.exists && doc.data().paid) {
+                        console.log("Payment confirmed.");
+                    } else {
+                        // 결제 데이터 확인 지연 시간 연장
+                        setTimeout(() => {
+                            db.collection('users').doc(user.uid).get().then(newDoc => {
+                                if (!newDoc.exists || !newDoc.data().paid) {
+                                    alert("결제 이력이 확인되지 않습니다.");
+                                    window.location.href = "index.html";
+                                }
+                            });
+                        }, 5000);
+                    }
+                });
             }
         });
 
@@ -180,8 +226,8 @@
             if (navigator.share) {
                 try {
                     await navigator.share({
-                        title: 'My Custom Caricature!',
-                        text: 'Look at this cool caricature I made with Caricature AI!',
+                        title: '당신의 캐리커처 - 예술적 펜 라인',
+                        text: '나만의 AI 캐리커처를 만들었어요! 정말 세련되고 멋지지 않나요? 지금 바로 확인해보세요.',
                         url: window.location.href
                     });
                 } catch (err) {
@@ -196,6 +242,54 @@
             // In a real app, this would download the generated image file
             alert('Your high-resolution caricature is being prepared for download!');
         };
+    </script>
+    <script>
+        const i18n = {
+            ko: {
+                slogan: "예술적 펜 라인",
+                brand_prefix: "당신의",
+                brand_suffix: "캐리커처",
+                save_gallery: "갤러리에 저장",
+                share_friends: "친구와 공유하기",
+                share_promo: "캐리커처가 마음에 드시나요? 인스타그램에 저희를 태그하고 공유하면 무료 팩 당첨 기회를 드립니다!",
+                tag_us: "태그하기",
+                create: "생성하기",
+                gallery: "갤러리",
+                nav_settings: "설정"
+            },
+            en: {
+                slogan: "Artistic Pen Line",
+                brand_prefix: "Your",
+                brand_suffix: "Caricature",
+                save_gallery: "Save to Gallery",
+                share_friends: "Share with Friends!",
+                share_promo: "Love your caricature? Share it on Instagram and tag us for a chance to win a free pack!",
+                tag_us: "Tag Us",
+                create: "Create",
+                gallery: "Gallery",
+                nav_settings: "Settings"
+            }
+        };
+
+        function applyLanguage(lang) {
+            const texts = i18n[lang] || i18n.en;
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (texts[key]) el.textContent = texts[key];
+            });
+
+            const headerBrand = document.getElementById('header-brand');
+            if (headerBrand) {
+                if (lang === 'en') {
+                    headerBrand.innerHTML = `<span class="text-white">${texts.brand_prefix}</span> <span class="text-[#6366f1]">${texts.brand_suffix}</span>`;
+                } else {
+                    headerBrand.innerHTML = `<span class="text-white">당신의</span> <span class="text-[#6366f1]">캐리커처</span>`;
+                }
+            }
+        }
+
+        const userLang = navigator.language.startsWith('ko') ? 'ko' : 'en';
+        applyLanguage(userLang);
     </script>
 </body>
 
